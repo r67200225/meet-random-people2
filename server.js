@@ -36,6 +36,14 @@ const isBanned = (ip) => {
   if (Date.now() > t) { bans.delete(ip); return false; }
   return true;
 };
+app.get('/', (req, res) =>{
+  res.sendFile(path.join(__dirname, 'index.html'));
+  
+});
+// route file
+app.get('/', (res, req) =>{
+  res.send('Server is running ')
+})
 
 const removeFromQueue = (s) => {
   const i = waiting.indexOf(s);
